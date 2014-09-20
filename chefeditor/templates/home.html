@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Intro
+================================================== -->
+{% if loginFail %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#loginbox').addClass('open');
+    $('#login_username').css({'background-color':'yellow'});
+    $('#login_password').css({'background-color':'yellow'});
+    $('#login_username').attr('placeholder','Invalid Email');
+    $('#login_password').attr('placeholder','and/or Invalid Password');
+});
+</script>
+
+   
+{% endif %}
+{% endblock %}

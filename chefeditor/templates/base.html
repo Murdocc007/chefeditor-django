@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    {% load staticfiles %}
+<html lang="en">
+    
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/icons.css' %}" rel="stylesheet" media="screen" />
+        <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/skindefault.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/social-buttons.css' %}" rel="stylesheet" />
+        <script type="text/javascript" src="{% static 'js/toggle.js' %}"></script>   
+
+        
+              <script src="{% static 'js/html5shiv.js' %}"></script>
+              <link rel="stylesheet" type="text/css" href="{% static 'css/ie.css' %}" />
+
+    <input type="hidden"  value="{{error_message}}"/>
+        {% if errorMessage %}
+        <div class="alert alert-danger">{{errorMessage}}</div>
+        {% endif %}
+        
+        <div id="login" style="display:block;text-align: center;">
+       <h1 class="title"><i class="icon-user"></i>&nbsp;&nbsp;Login</h1>
+        <form action="/chefeditor/checklogin/" method="post" accept-charset="UTF-8">{% csrf_token %}
+        Email-Id:&nbsp&nbsp
+        <input id="login_username" style="margin-bottom: 15px;" type="text" name="login_username" size="30" placeholder="Email addresss"/>
+        <br/>
+        Password:
+        <input id="login_password" style="margin-bottom: 15px;" type="password" name="login_password" size="30" placeholder ="Password" />
+        <br/>
+        <input class="btn btn-primary" 
+        style="clear: left; width: 10%; height: 32px; font-size: 13px;" 
+        type="submit" 
+        name="login_btn" 
+        id="login_btn">
+        </button>
+        </form>
+        </div>
+        
+        <div id="signup" style="display:none;text-align: center;">
+        <h1 class="title"><i class="icon-user"></i>&nbsp;&nbsp;Register</h1>
+        <form action="/chefeditor/home/" method = "post">{% csrf_token %}
+        {{ form.as_p}}
+        <input type = "submit" value="Sign Up" class="btn btn-large" />
+        </form>
+        </div>
+     
+     <a href=# id="foo" onClick="showhideSignup()" style="display:block;text-align: center;">Sign Up</a>     
+     
+
+
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/twitter-bootstrap-hover-dropdown.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.raty.min.js' %}"></script>
+    </body>
+</html>

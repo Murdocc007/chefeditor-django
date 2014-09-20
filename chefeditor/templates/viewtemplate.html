@@ -1,0 +1,54 @@
+
+{% if public_temp %}
+<div>
+<div id="javscript">
+< script type="text/javascript" >
+{{javascript}}
+< /script >
+</div>
+<br/>
+<br/>
+<div id="css">
+<style type='text/css'>
+{{css}}
+</style>
+</div>
+<br/>
+<br/>
+<div id="html">
+< html >
+{{html}}
+< /html >
+</div>
+</div>
+
+
+<script type="text/javascript">
+String.prototype.escapeHTML = function () {                                        
+  return(                                                                 
+    this.replace(/>/g,'&gt;').
+         replace(/</g,'&lt;').
+         replace(/"/g,'&quot;')
+  );
+};
+window.onload = function(){
+var javascript=document.getElementById('javascript');
+if (javascript) {
+  javascript.innerHTML = javascript.innerHTML.escapeHTML();
+}
+var css=document.getElementById('css');
+if (css) {
+  css.innerHTML = css.innerHTML.escapeHTML();
+}
+var html=document.getElementById('html');
+if (html) {
+  html.innerHTML = html.innerHTML.escapeHTML();
+} 
+};
+</script>
+</div>
+{% endif %}
+{% if not public_temp %}
+ 
+You are not allowed access to this content  
+{% endif %}  

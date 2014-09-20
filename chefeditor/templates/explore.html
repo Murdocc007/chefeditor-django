@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/icons.css' %}" rel="stylesheet" media="screen" />
+        <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/skindefault.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/social-buttons.css' %}" rel="stylesheet" />
+        <script type="text/javascript" src="{% static 'js/jquery-1.9.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/tryit.js' %}"></script>        
+	<div class="container">
+	<div style="float:right">	
+	<a href='/chefeditor/logout'>Logout</a>
+	</div>
+	<div class="row">
+	<div class="span12">
+        <div class="well">
+        <center><h1> Chef Editor<h1></center>
+        <div style="float:right">
+	<a title="View Profile" href="/chefeditor/profile/"><img src="/static/img/temp/profpics/{{request.session.logged_in.profile_pic}}" 
+                width="50" height="50" class="img-circle" style="width:50px;height:50px;" >
+	</a>
+        Welcome  {{ request.session.logged_in.name }}!
+	</div>
+	</div>
+	</div>
+        <br/><br/><br/><br/><br/>
+        
+	 
+        <input type="hidden"  value="{{errorMessage}}"/>
+        {% if errorMessage %}
+        <div class="alert alert-danger">{{errorMessage}}</div>
+        {% endif %}
+        
+        <div class="pull-right">
+	Saved Templates:
+	<form action="/chefeditor/modify/" method="post">{% csrf_token %}
+        <table>
+            <select name=dropdown>
+                {% for fiddle in fiddle %}
+                <option value="{{fiddle.name}}">{{fiddle.name}}</option>
+                {% endfor %}
+            </select>
+        </table>
+        <input class="btn btn-primary" 
+        style="clear: left; width: 32%; height: 32px; font-size: 13px;" 
+        type="Submit"
+        value="Load_Template"
+        name="Load_Template"
+        id="Load_Template">
+        </button>
+	<input class="btn btn-primary" 
+        style="clear: left; width: 34%; height: 32px; font-size: 13px;" 
+        type="Submit"
+        value="Delete_Template"
+        name="Delete_Template"
+        id="Delete_Template">
+        </button>
+	<input class="btn btn-primary" 
+        style="clear: left; width: 27%; height: 32px; font-size: 13px;" 
+        type="Submit"
+        value="Make_Public"
+        name="Make_Public"
+        id="Make_Public">
+        </button>
+	
+        </form>
+	{% if public_url %}
+	Public Url Link:<a>{{public_url}}</a>
+	{% endif %}
+        </div>
+	
+        <form action="/chefeditor/save/" method="post" accept-charset="UTF-8">{% csrf_token %}
+        <table>
+	<tr>
+	<td>
+	Name of the Fiddle
+	<input id="name" style="margin-bottom: 15px;" type="textarea" name="name" size="30" value="{{ name }}"/>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<br/>
+	CSS
+        <input id="css"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="css" size="30" value="{{ css }}"/>	
+	</td>	
+	<td style="padding-left:10%;">
+		<br/>
+	Javascript
+        <input id="javascript"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="javascript" size="30" value ="{{ javascript }}" />	
+	</td>
+	</tr>
+	<br/>
+	<tr style="padding-top:10px" colspan="2">
+	<td>
+		<br/><br/>
+	HTML
+        <input id="html" style="margin-bottom: 15px;width:210%;height: 100%" type="textarea" name="html" size="30" value ="{{  html }}" />      	
+	</td>	
+	</tr>
+	</table>
+	<br/><br/><br/>
+	<input class="btn btn-primary" 
+        style="clear: left; width: 10%; height: 32px; font-size: 13px;" 
+        type="Submit"
+        value="Save"
+        name="Save" 
+        id="save">
+        </button>
+        </form>
+        <button onClick="onTryItClick()" class="btn btn-primary " style="clear: left; width: 10%; height: 32px; font-size: 13px;">
+        TryIt
+        </button>
+        </body>
+        <br/>
+        Output:
+        <iframe height="100" width="100%" src="about:blank" name="myiframe"
+         id="myiframeid"> </iframe>
+        
+        
+					
+<html>
