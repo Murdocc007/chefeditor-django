@@ -11,9 +11,9 @@
         <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet" />
         <link href="{% static 'css/social-buttons.css' %}" rel="stylesheet" />
         <script type="text/javascript" src="{% static 'js/jquery-1.9.0.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/tryit.js' %}"></script>        
+        <script type="text/javascript" src="{% static 'js/tryit.js' %}"></script>
 	<div class="container">
-	<div style="float:right">	
+	<div style="float:right">
 	<a href='/chefeditor/logout'>Logout</a>
 	</div>
 	<div class="row">
@@ -21,7 +21,7 @@
         <div class="well">
         <center><h1> Chef Editor<h1></center>
         <div style="float:right">
-	<a title="View Profile" href="/chefeditor/profile/"><img src="/static/img/temp/profpics/{{request.session.logged_in.profile_pic}}" 
+	<a title="View Profile" href="/chefeditor/profile/"><img src="/static/img/temp/profpics/{{request.session.logged_in.profile_pic}}"
                 width="50" height="50" class="img-circle" style="width:50px;height:50px;" >
 	</a>
         Welcome  {{ request.session.logged_in.name }}!
@@ -29,13 +29,13 @@
 	</div>
 	</div>
         <br/><br/><br/><br/><br/>
-        
-	 
+
+
         <input type="hidden"  value="{{errorMessage}}"/>
         {% if errorMessage %}
         <div class="alert alert-danger">{{errorMessage}}</div>
         {% endif %}
-        
+
         <div class="pull-right">
 	Saved Templates:
 	<form action="/chefeditor/modify/" method="post">{% csrf_token %}
@@ -46,34 +46,34 @@
                 {% endfor %}
             </select>
         </table>
-        <input class="btn btn-primary" 
-        style="clear: left; width: 32%; height: 32px; font-size: 13px;" 
+        <input class="btn btn-primary"
+        style="clear: left; width: 32%; height: 32px; font-size: 13px;"
         type="Submit"
-        value="Load_Template"
-        name="Load_Template"
-        id="Load_Template">
+        value="Load Template"
+        name="Load Template"
+        id="Load Template">
         </button>
-	<input class="btn btn-primary" 
-        style="clear: left; width: 34%; height: 32px; font-size: 13px;" 
+	<input class="btn btn-primary"
+        style="clear: left; width: 34%; height: 32px; font-size: 13px;"
         type="Submit"
-        value="Delete_Template"
-        name="Delete_Template"
-        id="Delete_Template">
+        value="Delete Template"
+        name="Delete Template"
+        id="Delete Template">
         </button>
-	<input class="btn btn-primary" 
-        style="clear: left; width: 27%; height: 32px; font-size: 13px;" 
+	<input class="btn btn-primary"
+        style="clear: left; width: 27%; height: 32px; font-size: 13px;"
         type="Submit"
-        value="Make_Public"
-        name="Make_Public"
-        id="Make_Public">
+        value="Make Public"
+        name="Make Public"
+        id="Make Public">
         </button>
-	
+
         </form>
 	{% if public_url %}
-	Public Url Link:<a>{{public_url}}</a>
+	  Public Url:<a href="http://{{public_url}}">{{public_url}}</a>
 	{% endif %}
         </div>
-	
+
         <form action="/chefeditor/save/" method="post" accept-charset="UTF-8">{% csrf_token %}
         <table>
 	<tr>
@@ -86,12 +86,12 @@
 	<td>
 		<br/>
 	CSS
-        <input id="css"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="css" size="30" value="{{ css }}"/>	
-	</td>	
+        <input id="css"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="css" size="30" value="{{ css }}"/>
+	</td>
 	<td style="padding-left:10%;">
 		<br/>
 	Javascript
-        <input id="javascript"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="javascript" size="30" value ="{{ javascript }}" />	
+        <input id="javascript"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="javascript" size="30" value ="{{ javascript }}" />
 	</td>
 	</tr>
 	<br/>
@@ -99,16 +99,16 @@
 	<td>
 		<br/><br/>
 	HTML
-        <input id="html" style="margin-bottom: 15px;width:210%;height: 100%" type="textarea" name="html" size="30" value ="{{  html }}" />      	
-	</td>	
+        <input id="html" style="margin-bottom: 15px;width:210%;height: 100%" type="textarea" name="html" size="30" value ="{{  html }}" />
+	</td>
 	</tr>
 	</table>
 	<br/><br/><br/>
-	<input class="btn btn-primary" 
-        style="clear: left; width: 10%; height: 32px; font-size: 13px;" 
+	<input class="btn btn-primary"
+        style="clear: left; width: 10%; height: 32px; font-size: 13px;"
         type="Submit"
         value="Save"
-        name="Save" 
+        name="Save"
         id="save">
         </button>
         </form>
@@ -120,7 +120,7 @@
         Output:
         <iframe height="100" width="100%" src="about:blank" name="myiframe"
          id="myiframeid"> </iframe>
-        
-        
-					
+
+
+
 <html>
