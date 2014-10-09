@@ -36,7 +36,7 @@
         <div class="alert alert-danger">{{errorMessage}}</div>
         {% endif %}
 
-        <div class="pull-right">
+        <div >
 	Saved Templates:
 	<form action="/chefeditor/modify/" method="post">{% csrf_token %}
         <table>
@@ -47,21 +47,21 @@
             </select>
         </table>
         <input class="btn btn-primary"
-        style="clear: left; width: 32%; height: 32px; font-size: 13px;"
+        style="clear: left; width: 10%; height: 32px; font-size: 13px;"
         type="Submit"
         value="Load Template"
         name="Load Template"
         id="Load Template">
         </button>
 	<input class="btn btn-primary"
-        style="clear: left; width: 34%; height: 32px; font-size: 13px;"
+        style="clear: left; width: 10%; height: 32px; font-size: 13px;"
         type="Submit"
         value="Delete Template"
         name="Delete Template"
         id="Delete Template">
         </button>
 	<input class="btn btn-primary"
-        style="clear: left; width: 27%; height: 32px; font-size: 13px;"
+        style="clear: left; width: 10%; height: 32px; font-size: 13px;"
         type="Submit"
         value="Make Public"
         name="Make Public"
@@ -78,32 +78,31 @@
         <table>
 	<tr>
 	<td>
-	Name of the Fiddle
-	<input id="name" style="margin-bottom: 15px;" type="textarea" name="name" size="30" value="{{ name }}"/>
+	<textarea id="name" style="margin-bottom: 15px;" type="textarea" name="name" size="30" value="{{ name }}" placeholder="Name of the Fiddle">{{ name }}</textarea>
 	</td>
 	</tr>
 	<tr>
 	<td>
-		<br/>
-	CSS
-        <input id="css"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="css" size="30" value="{{ css }}"/>
+
+<br/>
+        <textarea id="css"  style="margin-bottom: 15px;width:465px;height:200px;" type="textarea" name="css" size="30" value="{{ css }}" placeholder="CSS">{{ css }}</textarea>
 	</td>
 	<td style="padding-left:10%;">
 		<br/>
-	Javascript
-        <input id="javascript"  style="margin-bottom: 15px;width:100%;height: 100%;" type="textarea" name="javascript" size="30" value ="{{ javascript }}" />
+
+        <textarea id="javascript"  style="margin-bottom: 15px;width:465px;height:200px;" type="textarea" name="javascript" size="30" value ="{{ javascript }}" placeholder="Javascript" >{{ javascript }}</textarea>
 	</td>
 	</tr>
 	<br/>
 	<tr style="padding-top:10px" colspan="2">
 	<td>
-		<br/><br/>
-	HTML
-        <input id="html" style="margin-bottom: 15px;width:210%;height: 100%" type="textarea" name="html" size="30" value ="{{  html }}" />
+		<br/>
+
+        <textarea id="html" style="margin-bottom: 15px;width:220%;height:200px" type="textarea" name="html" size="30" value ="{{  html }}" placeholder="HTML" >{{  html }}</textarea>
 	</td>
 	</tr>
 	</table>
-	<br/><br/><br/>
+	<br/>
 	<input class="btn btn-primary"
         style="clear: left; width: 10%; height: 32px; font-size: 13px;"
         type="Submit"
